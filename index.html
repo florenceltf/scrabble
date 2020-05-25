@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrabble Calculator</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/favicon.png" type="image/png" sizes="16x16">
+</head>
+
+<body>
+
+    <div id="container">
+
+        <aside>
+            <div id="title" class="fixed-height">
+                <h1>Scrabble Calculator</h1>
+            </div>
+            <div id="history"></div>
+            <button id="reset" class="fixed-height">Reset</button>
+        </aside>
+
+        <main>
+
+            <div id="main-header">
+                <form id="entry">
+                    <input id="new-entry" class="fixed-height" onkeyup="this.value = this.value.toLowerCase();"
+                        autofocus placeholder="Type word here">
+                </form>
+                <button id="reset-mobile" class="fixed-height">Reset</button>
+            </div>
+
+            <div id="score-container">
+                <div id="score">0</div>
+            </div>
+
+            <div id="options-toggle" class="fixed-height">
+                <div id="options-text">Bonus Options</div>
+                <div id="arrow">↑</div>
+            </div>
+
+            <div id="close-toggle" class="fixed-height">
+                <div id="close-options-text">Close Options</div>
+                <div id="arrow">↓</div>
+            </div>
+
+            <section id="options-container">
+
+                <label class="options fixed-height">
+                    <input id="double-letter" type="checkbox">
+                    <span class="checkmark"></span>
+                    <div class="options-text">Double Letter</div>
+                    <select id="double-letter-dropdown">
+                        <option value="default" disabled selected>A → Z</option>
+                    </select>
+                </label>
+
+                <label class="options fixed-height">
+                    <input id="triple-letter" type="checkbox">
+                    <span class="checkmark"></span>
+                    <div class="options-text">Triple Letter</div>
+                    <select id="triple-letter-dropdown">
+                        <option value="default" disabled selected>A → Z</option>
+                    </select>
+                </label>
+
+                <label class="options fixed-height">
+                    <input id="double-word" type="checkbox">
+                    <span class="checkmark"></span>
+                    <div class="options-text">Double Word Score</div>
+                </label>
+
+                <label class="options fixed-height">
+                    <input id="triple-word" type="checkbox">
+                    <span class="checkmark"></span>
+                    <div class="options-text">Triple Word Score</div>
+                </label>
+
+                <label class="options fixed-height">
+                    <input id="bingo" type="checkbox">
+                    <span class="checkmark"></span>
+                    <div class="options-text">Bingo! +50 Points</div>
+                </label>
+
+                <button id="submit" class="options fixed-height">Submit</button>
+
+            </section>
+
+        </main>
+
+        <div id="information">Information <span class="pencil">✎</span>
+        </div>
+
+        <div id="close-information">Close <span class="pencil">✎</span>
+        </div>
+
+    </div>
+
+    <div id="overlay">
+        <h2>Scrabble Calculator</h2>
+        <br><br>
+        How To Use
+        <ol>
+            <li>
+                Type your word into the text field.
+                The score will update as you type.
+            </li>
+            <li>
+                Select any bonus options to add to your score.
+            </li>
+            <li>
+                Click submit to make your word appear on the word list.
+            </li>
+            <li>
+                Click reset to clear the page.
+            </li>
+        </ol>
+        Design & Code by <a href="http://florenceltf.com/">Florence Li Ting Fong</a> ↗
+    </div>
+
+    <div id="cursor"></div>
+
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
