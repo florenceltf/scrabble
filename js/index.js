@@ -56,7 +56,7 @@ $(document).ready(function () {
             total = total * 3;
         }
 
-        if (arrayOfLetters.length >= 7) {
+        if (arrayOfLetters.length >= 7 && !isNaN(total)) {
             total = total + 50;
             $("#bingo-popup").slideDown();
         } else {
