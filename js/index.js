@@ -38,12 +38,12 @@ $(document).ready(function () {
             total = total + (letterToValue[letter])
         });
 
-        if ($("#double-letter").is(":checked") && $("#double-letter-dropdown").val() !== null) {
+        if ($("#double-letter").is(":checked")) {
             var dblLetter = $("#double-letter-dropdown").val().toLowerCase()
             total = total + letterToValue[dblLetter]
         }
 
-        if ($("#triple-letter").is(":checked") && $("#triple-letter-dropdown").val() !== null) {
+        if ($("#triple-letter").is(":checked")) {
             var tplLetter = $("#triple-letter-dropdown").val().toLowerCase()
             total = total + (2 * letterToValue[tplLetter])
         }
@@ -56,7 +56,7 @@ $(document).ready(function () {
             total = total * 3;
         }
 
-        if (arrayOfLetters.length === 7 && total) {
+        if (arrayOfLetters.length >= 7) {
             total = total + 50;
             $("#bingo-popup").slideDown();
         } else {
@@ -70,11 +70,14 @@ $(document).ready(function () {
         if (isNaN(total)) {
             $("#score").html("—");
         } else {
-            console.log(total)
             $("#score").html(total);
         }
 
     };
+
+    $("#new-entry").on("input", updateScore);
+    $("#double-word").click(updateScore);
+    $("#triple-word").click(updateScore);
 
     $("#double-letter-dropdown").change(function () {
         $("#double-letter").prop("checked", true)
@@ -84,12 +87,7 @@ $(document).ready(function () {
     $("#double-letter").click(function () {
         if ($("#double-letter").prop("checked", false)) {
             $("#double-letter-dropdown").prop("selectedIndex", 0);
-        }
-    });
-
-    $("#triple-letter").click(function () {
-        if ($("#triple-letter").prop("checked", false)) {
-            $("#triple-letter-dropdown").prop("selectedIndex", 0);
+            updateScore();
         }
     });
 
@@ -98,13 +96,12 @@ $(document).ready(function () {
         updateScore();
     })
 
-    $("#new-entry").on("input", updateScore);
-    $("#double-letter").click(updateScore);
-    $("#triple-letter").click(updateScore);
-    $("#double-word").click(updateScore);
-    $("#triple-word").click(updateScore);
-    $("#bingo").click(updateScore);
-
+    $("#triple-letter").click(function () {
+        if ($("#triple-letter").prop("checked", false)) {
+            $("#triple-letter-dropdown").prop("selectedIndex", 0);
+            updateScore();
+        }
+    });
 
     function addToHistory() {
         var entry = $("#new-entry").val();
@@ -116,11 +113,10 @@ $(document).ready(function () {
         $("#score").html(0);
         $("#double-letter").prop("checked", false);
         $("#double-letter-dropdown").prop("selectedIndex", 0);
-        $("#triple-letter-dropdown").prop("selectedIndex", 0)
         $("#triple-letter").prop("checked", false);
+        $("#triple-letter-dropdown").prop("selectedIndex", 0)
         $("#double-word").prop("checked", false);
         $("#triple-word").prop("checked", false);
-        $("#bingo").prop("checked", false);
         $("#bingo-popup").hide();
     };
 
