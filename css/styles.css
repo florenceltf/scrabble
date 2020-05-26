@@ -374,13 +374,6 @@ h2 {
     }
 }
 
-@media (min-width: 1404px) {
-
-        #options-container {
-            max-height: 65px;
-        }
-}
-
 @media (min-width: 1002px) and (max-width: 1079px),
 (min-width: 803px) and (max-width: 845px) {
 
