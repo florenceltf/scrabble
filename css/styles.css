@@ -381,9 +381,8 @@ h2 {
         }
 }
 
-@media (min-width: 846px) and (max-width: 858px),
-(min-width: 767px) and (max-width: 802px),
-(min-width: 1305px) and (max-width: 1403px) {
+@media (min-width: 1002px) and (max-width: 1079px),
+(min-width: 803px) and (max-width: 845px) {
 
     #submit {
         border-left: none;

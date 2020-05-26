@@ -27,7 +27,7 @@
             <div id="main-header">
                 <form id="entry">
                     <input id="new-entry" class="fixed-height" onkeyup="this.value = this.value.toLowerCase();"
-                        autofocus placeholder="Type word here">
+                        autofocus placeholder="Type Word Here">
                 </form>
                 <button id="reset-mobile" class="fixed-height">Reset</button>
             </div>
@@ -82,9 +82,16 @@
                     <div class="options-text">Triple Word Score</div>
                 </label>
 
+                <label class="options fixed-height">
+                    <input id="bingo" type="checkbox">
+                    <span class="checkmark"></span>
+                    <div class="options-text">All 7 Tiles Played</div>
+                </label>
+
                 <button id="submit" class="options fixed-height">Submit</button>
 
             </section>
+
 
         </main>
 
@@ -110,16 +117,16 @@
                 Select any applicable bonus options.
             </li>
             <li>
-                A word with 7+ letters will activate 'Bingo', adding 50 points to your score.
+                Playing all seven tiles will activate 'bingo', adding 50 points to your word score.
             </li>
             <li>
                 To reference a blank tile, use an asterisks "*" in place of a letter.
             </li>
             <li>
-                Click submit to make your word appear on the word list.
+                Press Enter or click Submit Word to make your word appear on the word list.
             </li>
             <li>
-                Click reset to clear the page.
+                Click Reset to clear the page.
             </li>
         </ol>
         Design & Code by <a href="http://florenceltf.com/">Florence Li Ting Fong</a> ↗

@@ -56,14 +56,13 @@ $(document).ready(function () {
             total = total * 3;
         }
 
-        if (arrayOfLetters.length >= 7 && !isNaN(total)) {
+        if ($("#bingo").is(":checked")) {
             total = total + 50;
             $("#bingo-popup").slideDown();
         } else {
             $("#bingo").prop("checked", false)
             $("#score").css("transform", "scale(1)");
             $("#score").css("transition", ".5s")
-            $("html").css("filter", "invert(0%)");
             $("#bingo-popup").slideUp();
         }
 
@@ -72,12 +71,12 @@ $(document).ready(function () {
         } else {
             $("#score").html(total);
         }
-
     };
 
     $("#new-entry").on("input", updateScore);
     $("#double-word").click(updateScore);
     $("#triple-word").click(updateScore);
+    $("#bingo").click(updateScore);
 
     $("#double-letter-dropdown").change(function () {
         $("#double-letter").prop("checked", true)
@@ -117,6 +116,7 @@ $(document).ready(function () {
         $("#triple-letter-dropdown").prop("selectedIndex", 0)
         $("#double-word").prop("checked", false);
         $("#triple-word").prop("checked", false);
+        $("#bingo").prop("checked", false);
         $("#bingo-popup").hide();
     };
 
