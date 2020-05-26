@@ -1,27 +1,19 @@
 $(document).ready(function () {
 
-    $("html").mousemove(function (event) {
-
-        $("#cursor").css("transform", "translate3d(" + (event.clientX - 25) + "px," + (event.clientY - 25) + "px,0px)"
-        )
-    });
-
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        $("#cursor").css("display", "none");
-    };
-
-
     var letterDropdown = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
     letterDropdown.forEach(function (letter) {
         $("select").append("<option>" + letter + "</option>");
     });
 
+    $("#new-entry").keyup(function () {
+        this.value = this.value.toLowerCase();
+    });
 
     function updateScore() {
 
         var total = 0;
-        var entry = $("#new-entry").val();
+        var entry = $("#new-entry").val().toLowerCase();
         var arrayOfLetters = entry.split("");
         var letterToValue = {
             a: 1, e: 1, i: 1, o: 1, u: 1, l: 1, n: 1, s: 1, t: 1, r: 1,
@@ -39,12 +31,12 @@ $(document).ready(function () {
         });
 
         if ($("#double-letter").is(":checked")) {
-            var dblLetter = $("#double-letter-dropdown").val().toLowerCase()
+            var dblLetter = $("#double-letter-dropdown").val().toLowerCase();
             total = total + letterToValue[dblLetter]
         }
 
         if ($("#triple-letter").is(":checked")) {
-            var tplLetter = $("#triple-letter-dropdown").val().toLowerCase()
+            var tplLetter = $("#triple-letter-dropdown").val().toLowerCase();
             total = total + (2 * letterToValue[tplLetter])
         }
 
@@ -61,8 +53,6 @@ $(document).ready(function () {
             $("#bingo-popup").slideDown();
         } else {
             $("#bingo").prop("checked", false)
-            $("#score").css("transform", "scale(1)");
-            $("#score").css("transition", ".5s")
             $("#bingo-popup").slideUp();
         }
 
@@ -165,5 +155,12 @@ $(document).ready(function () {
         $("#overlay").toggle("slide", { direction: "left" }, 500);
     });
 
+    $("html").mousemove(function (event) {
+        $("#cursor").css("transform", "translate3d(" + (event.clientX - 25) + "px," + (event.clientY - 25) + "px,0px)")
+    });
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        $("#cursor").css("display", "none");
+    };
 
 });
