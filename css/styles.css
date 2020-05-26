@@ -131,6 +131,12 @@ main {
     cursor: none;
 }
 
+#bingo-popup {
+    text-align: center;
+    border-bottom: 1px solid black;
+    display: none;
+}
+
 #score-container {
     align-items: center;
     display: flex;
@@ -208,7 +214,7 @@ select:focus {
 #submit {
     border-left: 1px solid #1a1a1a;
 }
- 
+
 /* right column */
 
 #information {

@@ -30,11 +30,12 @@ $(document).ready(function () {
             f: 4, h: 4, v: 4, w: 4, y: 4,
             k: 5,
             j: 8, x: 8,
-            q: 10, z: 10
+            q: 10, z: 10,
+            "*": 0
         }
 
         arrayOfLetters.forEach(function (letter) {
-            total = total + (letterToValue[letter] || 0)
+            total = total + (letterToValue[letter])
         });
 
         if ($("#double-letter").is(":checked") && $("#double-letter-dropdown").val() !== null) {
@@ -55,11 +56,23 @@ $(document).ready(function () {
             total = total * 3;
         }
 
-        if ($("#bingo").is(":checked")) {
+        if (arrayOfLetters.length === 7 && total) {
             total = total + 50;
+            $("#bingo-popup").slideDown();
+        } else {
+            $("#bingo").prop("checked", false)
+            $("#score").css("transform", "scale(1)");
+            $("#score").css("transition", ".5s")
+            $("html").css("filter", "invert(0%)");
+            $("#bingo-popup").slideUp();
         }
 
-        $("#score").html(total);
+        if (isNaN(total)) {
+            $("#score").html("—");
+        } else {
+            console.log(total)
+            $("#score").html(total);
+        }
 
     };
 
@@ -108,6 +121,7 @@ $(document).ready(function () {
         $("#double-word").prop("checked", false);
         $("#triple-word").prop("checked", false);
         $("#bingo").prop("checked", false);
+        $("#bingo-popup").hide();
     };
 
     $("#entry").submit(function (event) {

@@ -32,6 +32,10 @@
                 <button id="reset-mobile" class="fixed-height">Reset</button>
             </div>
 
+            <div class="fixed-height" id="bingo-popup">
+                *** Bingo! +50 Points ***
+            </div>
+
             <div id="score-container">
                 <div id="score">0</div>
             </div>
@@ -78,12 +82,6 @@
                     <div class="options-text">Triple Word Score</div>
                 </label>
 
-                <label class="options fixed-height">
-                    <input id="bingo" type="checkbox">
-                    <span class="checkmark"></span>
-                    <div class="options-text">Bingo! +50 Points</div>
-                </label>
-
                 <button id="submit" class="options fixed-height">Submit</button>
 
             </section>
@@ -101,16 +99,21 @@
     <div id="overlay">
         <h2>Scrabble Calculator</h2>
         <br>
-        A tool to accompany a game of Scrabble.
+        A tool to accompany your game of Scrabble.
         <br><br>
         Instructions
         <ol>
             <li>
-                Type your word into the text field.
-                The score will update as you type.
+                Type your word into the text field and your score will update as you type.
             </li>
             <li>
-                Select any bonus options to add to your score.
+                Select any applicable bonus options.
+            </li>
+            <li>
+                A 7-letter word will activate 'Bingo', adding 50 points to your score.
+            </li>
+            <li>
+                To reference a blank tile, use an asterisks "*" in place of a letter.
             </li>
             <li>
                 Click submit to make your word appear on the word list.
