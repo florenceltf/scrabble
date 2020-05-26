@@ -374,9 +374,16 @@ h2 {
     }
 }
 
+@media (min-width: 1404px) {
+
+        #options-container {
+            max-height: 65px;
+        }
+}
+
 @media (min-width: 846px) and (max-width: 858px),
 (min-width: 767px) and (max-width: 802px),
-(min-width: 1305px) and (max-width: 1404px) {
+(min-width: 1305px) and (max-width: 1403px) {
 
     #submit {
         border-left: none;
